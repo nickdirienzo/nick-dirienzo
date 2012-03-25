@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Blog> Post> {{ post.title }}{% endblock %}
+
+{% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/blog.css' />{% endblock %}
+
+{% block content %}            
+        {% if post_exists %}
+        <div class="blog-post" id="{{ post.path }}">
+            <div id="post-title">
+                <a href="/blog/post/{{ post.path }}">{{ post.title }}</a>
+            </div>
+            <div id="post-date">
+                {{ post.timestamp|date:"N d, Y " }}
+            </div>
+            <div id="post-tags">
+                Tags:
+                {% for tag in post.tags %}
+                <a href="/blog/tag/{{ tag.path }}">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </div>
+           {{ post.content }}
+        {% if is_admin %}
+        <p><a href="/blog/edit?post-title={{ post.title }}">Edit Post</a></p>
+        {% endif %}
+        </div>
+        <div id="comment-section">
+        <p style="font-weight: bold;">Comments:</p>
+        {% for comment in post.comments %}
+            <div class="comment-wrapper">
+                <div class="comment-header">
+                    <span style="font-style: italic;" class="comment-author">
+                    {% if comment.author.use_name %}{{ comment.author.name|escape }}{% else %}{{ comment.author.account|escape }}{% endif %}
+                    {% if is_admin %}({{ comment.author.account }}){% endif %}
+                    </span> 
+                    on {{ comment.timestamp|date:"N d, Y " }}
+                </div>
+                <div style="padding-left: 25px;" class="comment-content">
+                {{ comment.content|striptags|linebreaks }}
+                </div>
+                {% if is_admin %}<a href="/blog/comment/delete/{{ comment.key }}?post={{ post.path }}">Delete Comment</a>{% endif %}
+            </div>
+        {% endfor %}
+        </div>
+        {% if not username %}
+        <p>You need to be <a href="{{ login_url }}">signed in</a> to your Google account to comment.</p>
+        {% else %}
+        <form action="/blog/comment?post={{ post.path }}" method="POST">
+        <p style="font-weight: bold;">Leave A Comment</p>
+        <p>Signed in as: {{ username }}</p>
+        <p><label for="comment-name">Name (not required, but will use Google account username instead):</label><br />
+        <input name="comment-name" id="comment-name" size="50" /></p>
+        <p><label for="comment-content">Comment:</label><br />
+        <textarea name="comment-content" id="comment-content" cols="35" rows="15"></textarea></p>
+        <p><input type="submit" name="submit-comment" value="Submit Comment" /></p>
+        </form>
+        {% endif %}
+        {% else %}
+        <div id="page-title">Post Not Found!</div>
+        <p>The blog post you requested does not exist.</p>
+        <p>I think you should <a href="/blog">start over</a>.</p>
+        {% endif %}
+            
+{% endblock %}

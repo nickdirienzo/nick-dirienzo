@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Posts Tagged With: {{ tag }}{% endblock %}
+
+{% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/blog.css' />{% endblock %}
+
+{% block content %}           
+        <div id="page-title">Posts Tagged With: {{ tag }}</div>
+        {% if post_exists %}
+        {% for post in posts %}
+        <div class="blog-post">
+            <div id="post-title">
+                <a href="/blog/post/{{ post.path }}">{{ post.title }}</a>
+            </div>
+            <div id="post-date">
+                {{ post.timestamp.month }}.{{ post.timestamp.day }}.{{ post.timestamp.year }}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div id="page-title">Posts Not Found!</div>
+        <p>There are no posts tagged with {{ tag }}</p>
+        <p>I think you should <a href="/blog">start over</a>.</p>
+        {% endif %}
+            
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block scripts %}
+    {% if username %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#send-mail-button").click(function() {
+                $("#contact-form").submit();
+            });
+        });
+    </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+        {% if username %}
+            <p>The best way to contact me is through Email. Feel free to say hi, and I'll be sure
+            to get back to you. All fields are required.</p>
+            <form id="contact-form" action="/contact" method="post">
+                <label for="name">Name:</label><br />
+                <input name="name" size="55px" value="{{ name }}"/><br /><br />
+                <label for="return-email">Email:</label><br />
+                <input name="return-email" size="55px" value="{{ return_email }}" /><br /><br />
+                <label for="subject">Subject:</label><br />
+                <input name="subject" size="55px" value="{{ subject }}" /><br /><br />
+                <label for="message">Message:</label><br />
+                <textarea name="message" rows="10" cols="40" size="50px">{{ message }}</textarea><br />
+                <input id="send-mail-button" type="button" value="Send" />
+            </form>
+        {% endif %}
+{% endblock %}

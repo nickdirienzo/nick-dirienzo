@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Comment Manager{% endblock %}
+
+{% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/blog.css' />{% endblock %}
+
+{% block content %}            
+        {% if is_admin %}
+        {% for comment in comments %}
+        <div class="comment">
+            {{ comment.author }} said:<br />
+            {{ comment.content }}
+            
+        </div>
+        {% endfor %}
+        {% else %}
+        
+        {% endif %}
+{% endblock %}

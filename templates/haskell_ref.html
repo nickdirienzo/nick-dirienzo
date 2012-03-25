@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Haskell Reference{% endblock %}
+
+{% block content %}
+<p>
+    So I'm learning Haskell using the online version of <a href="http://learnyouahaskell.com/">Learn 
+    You A Haskell For Great Good!</a> and I decided that I need to start taking notes. So, I'll keep 
+    this up as a reference sheet for a quick glance of a function or concept.
+</p>
+<p>
+    <strong>Haskell Terminal Commands</strong>
+    <ul id="haskell-commands">
+        <li>Start the interactive mode in terminal using <code>ghci</code></li>
+        <li><code>:set prompt "ghci> "</code> changes the prompt in GHCI from <code>Prelude> </code> to <code>ghci> </code></li>
+    </ul>
+</p>
+<p>
+    <strong>Boolean Algebra</strong>
+    <ul id="boolean-algrebra">
+        <li><code>&&</code> means boolean and</li>
+        <li><code>||</code> means boolean or</li>
+        <li><code>not</code> negates True and False</li>
+        <li><code>==</code> means "is equal to"</li>
+        <li><code>/=</code> means "is not equal to"</li>
+    </ul>
+</p>
+<p>
+    <strong>General Function Concepts</strong>
+    <ul id="general-function-concepts">
+        <li>Functions are not followed by parenthesis but rather by just a space and the parameter(s) needed.</li>
+        <li><em>Function application</em> (calling a function followed by a space) has the highest precedence.</li>
+        <li><em>Infix function</em>: a function that takes two parameters, but can be rewritten using backticks.</li>
+        <ul>
+            <li><code>div 9 3</code> can be rewritten to <code>9 `div` 3</code> to make it clear which is the dividend and which is the divisor.</li>
+        </ul>
+    </ul>
+</p>
+<p>
+    <strong>General Function Concepts</strong>
+    <ul id="general-function-concepts">
+    <li>Functions are not followed by parenthesis but rather by just a space and the parameter(s) needed.</li>
+    <li>Function application (calling a function followed by a space) has the highest precedence.</li>
+    </ul>
+    <strong>Built-In Functions</strong>
+    <ul id="built-in-functions">
+        <li><code>succ x</code>&nbsp;&nbsp;&nbsp;&nbsp; returns x+1</li>
+        <li><code>min x y</code>&nbsp;&nbsp;&nbsp;&nbsp; returns whichever is less of the two</li>
+        <li><code>max x y</code>&nbsp;&nbsp;&nbsp;&nbsp; returns whichever is greater</li>
+    </ul>
+</p>
+{% endblock %}

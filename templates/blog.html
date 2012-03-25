@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/blog.css' />{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#post-button").click(function() {
+            $("#new-post-form").submit();
+        });
+    });
+</script>
+{% endblock %}
+
+
+{% block content %}            
+            {% if is_admin %}
+                <form id="new-post-form" action="/blog" method="post">
+                    <table>
+                        <tr>
+                            <td><label for="post-title">Title:</label></td>
+                            <td><input name="post-title" value="{{ title }}" /></td>
+                        </tr>
+                        <tr id="title-error" {% if not title_error %}style="display: none;"{% endif %}>
+                            <td></td>
+                            <td style="color: red;">You did not enter a title for the post.</td>
+                        </tr>
+                        <tr id="title-exists-error" {% if not title_exists_error %}style="display: none;"{% endif %}>
+                            <td></td>
+                            <td style="color: red;">A post with this title already exists.</td>
+                        </tr>
+                        <tr>
+                            <td><label for="post-content">Content:</label></td>
+                            <td><textarea name="post-content" rows="10" cols="50">{{ content }}</textarea></td>
+                            <td>Some reminders: <br />
+                                Don't forget paragraph tags <br />
+                                Separator = <code>&lt;div class="sep"&gt;&lt;/div&gt;</code>
+                            </td>
+                        </tr>
+                        <tr id="content-error" {% if not content_error %}style="display: none;"{% endif %}>
+                            <td></td>
+                            <td style="color: red;">You did not enter any content for the post.</td>
+                        </tr>
+                        <tr>
+                            <td><label for="post-tags">Post Tags:</label></td>
+                            <td><input name="post-tags" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input id="post-button" type="button" value="Create New Post" /></td>
+                        </tr>
+                    </table>
+                </form>
+            {% endif %}
+        
+        {% if post_exists %}
+        {% for post in posts %}
+        <div class="blog-post" id="{{ post.path }}">
+            <div id="post-title">
+                <a href="/blog/post/{{ post.path }}">{{ post.title }}</a>
+            </div>
+            <span id="post-date">
+                {{ post.timestamp|date:"N d, Y " }}
+            </span>|
+            <span id="post-tags">
+                Tags:
+                {% for tag in post.tags %}
+                <a href="/blog/tag/{{ tag.path }}">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </span>
+           {{ post.content }}
+        {% if is_admin %}
+        <p><a href="/blog/edit?post-title={{ post.title }}">Edit Post</a></p>
+        {% endif %}
+        </div>
+        {% endfor %}
+        <div id="blog-pages">
+        {% if prev_page %}
+        <a href="/blog?page={{ prev_page }}">< Previous Page</a>
+        {% endif %}
+        {% if not first_page_is_last_page %}
+        {% if not on_last_page %}
+        <a href="/blog?page={{ next_page }}">Next Page ></a>
+        {% endif %}
+        {% endif %}
+        </div>
+        {% else %}
+        <div id="page-title">Post Not Found!</div>
+        <p>The blog post you requested does not exist.</p>
+        <p>I think you should <a href="/blog">start over</a>.</p>
+        {% endif %}
+       
+            
+{% endblock %}

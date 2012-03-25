@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    background-color: white;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    margin: auto;
+}
+
+#sidebar {
+    position: fixed;
+    float: left;
+    font-size: 1em;
+    width: 250px;
+    background-color: #282828;
+    border-right: 5px solid #E0E0E0;
+    height: 100%;
+    box-shadow: 0 0 7px 1px black;
+    color: white;
+    line-height: 1.8em;
+}
+
+#sidebar a {
+	color: white;
+    text-decoration: none;
+}
+
+#sidebar a:hover {
+    color: #4F94CD;
+}
+
+#menu, #user-menu {
+    list-style: none;
+}
+
+#menu li, #user-menu li {
+    margin-left: -40px;
+    padding-left: 10px;
+}
+
+#social-menu {
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+}
+
+#social-menu li {
+    margin-left: -40px;
+    padding-left: 10px;
+}
+
+.current-page {
+    background-color: #4F94CD;
+}
+
+.current-page:hover {
+    color: white;
+}
+
+#content-wrapper {
+    float: left;
+    padding: 0 10px;
+    margin-left: 255px;
+    background-color: white;
+    width: 700px;
+    height: 100%;
+}
+
+#content {
+    padding: 0 10px;
+}
+
+#content a {
+	color: #4F94CD;
+	text-decoration: none;
+}
+
+#content a:hover {
+	color: white;
+	background-color: #4F94CD;
+}
