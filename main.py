@@ -15,14 +15,6 @@ from google.appengine.api import users
 from google.appengine.api import mail
 from google.appengine.ext import db
 
-class Post(db.Model):
-    slug = db.StringProperty(required=True)
-    title = db.StringProperty(required=True)
-    markdown = db.TextProperty(required=True)
-    html = db.TextProperty(required=True)
-    published = db.BooleanProperty(default=False)
-    timestamp = db.DateTimeProperty(auto_now_add=True)
-
 class Page(webapp.RequestHandler):
     def render(self, page_name, slug="", template_vars={}):
         page_vars = {}
@@ -40,6 +32,14 @@ class Page(webapp.RequestHandler):
         page_vars["page_name"] = page_name
         page_vars.update(template_vars)
         self.response.out.write(template.render(path, page_vars))
+
+class Post(db.Model):
+    slug = db.StringProperty(required=True)
+    title = db.StringProperty(required=True)
+    markdown = db.TextProperty(required=True)
+    html = db.TextProperty(required=True)
+    published = db.BooleanProperty(default=False)
+    timestamp = db.DateTimeProperty(auto_now_add=True)
 
 class PageHandler(Page):
     def get(self, page_name):

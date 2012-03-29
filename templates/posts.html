@@ -5,35 +5,34 @@
 {% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/posts.css' />{% endblock %}
 
 {% block content %}
-{% for post in posts %}
-{% if post.published %}
-<div class="blog-post">
-    <span id="post-title"><a href="/posts/{{ post.slug }}">{{ post.title }}</a></span>
-    <span id="post-date">{{ post.timestamp|date:"N d, Y " }}</span>
-    {% if is_admin %}
-    <form action="/posts/unpublish/{{ post.slug }}" method="post">
-        <input type="submit" value="Unpublish" />
-    </form>
-    <form action="/posts/delete/{{ post.slug }}" method="post">
-        <input type="submit" value="Delete" />
-    </form>
-    {% endif %}
-</div>
-{% else %}
-    {% if is_admin %}
-<div class="blog-post">
-    <span id="post-title"><a href="/posts/{{ post.slug }}">{{ post.title }}</a></span>
-    <span id="post-date">{{ post.timestamp|date:"N d, Y " }}</span>
-    {% if not post.published %}
-    <form action="/posts/publish/{{ post.slug }}" method="post">
-        <input type="submit" value="Publish" />
-    </form>
-    <form action="/posts/delete/{{ post.slug }}" method="post">
-        <input type="submit" value="Delete" />
-    </form>
-    {% endif %}
-    {% endif %}
-</div>
-{% endif %}
-{% endfor %}
+    {% for post in posts %}
+        {% if post.published %}
+        <div class="blog-post">
+            <span id="post-title"><a href="/posts/{{ post.slug }}">{{ post.title }}</a></span>
+            <span id="post-date">{{ post.timestamp|date:"N d, Y " }}</span>
+            {% if is_admin %}
+            <form action="/posts/unpublish/{{ post.slug }}" method="post">
+                <input type="submit" value="Unpublish" />
+            </form>
+            <form action="/posts/delete/{{ post.slug }}" method="post">
+                <input type="submit" value="Delete" />
+            </form>
+            {% endif %}
+        </div>
+        {% else %}
+            {% if is_admin %}
+            <div class="blog-post">
+                <span id="post-title"><a href="/posts/{{ post.slug }}">{{ post.title }}</a></span>
+                <span id="post-date">{{ post.timestamp|date:"N d, Y " }}</span>
+
+                <form action="/posts/publish/{{ post.slug }}" method="post">
+                    <input type="submit" value="Publish" />
+                </form>
+                <form action="/posts/delete/{{ post.slug }}" method="post">
+                    <input type="submit" value="Delete" />
+                </form>
+            </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
 {% endblock %}
