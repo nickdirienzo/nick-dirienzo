@@ -29,11 +29,10 @@
         <div id="sidebar">
             <ul id="menu">
                 <a href="/"><li {% ifequal page_name "home" %}class="current-page"{% endifequal %}>Nick DiRienzo</li></a>
-                <a href="/about"><li {% ifequal page_name "about" %}class="current-page"{% endifequal %}>About</li></a>
-                <a href="/blog">
-                    <li {% ifequal page_name "blog" %}class="current-page"{% endifequal %}
-                    {% ifequal page_name "blog_post" %}class="current-page"{% endifequal %}
-                    {% ifequal page_name "posts_by_tag" %}class="current-page"{% endifequal %}>Blog</li></a>
+                <a href="/posts/">
+                <li {% ifequal page_name "posts" %}class="current-page"{% endifequal %}>Posts</li></a>
+                <a href="/projects"><li {% ifequal page_name "projects" %}class="current-page"{% endifequal %}>Projects</li></a>
+                <a href="/talks"><li {% ifequal page_name "talks" %}class="current-page"{% endifequal %}>Talks</li></a>
             </ul>
             <ul id="user-menu">
                 {% if not username %}
@@ -46,8 +45,9 @@
             <ul id="social-menu">
                 <li class="menu-item"><a href="https://github.com/nickdirienzo" target="_blank">GitHub</a></li>
                 <li class="menu-item"><a href="http://twitter.com/#!/nickdirienzo" target="_blank">Twitter</a></li>
-                <li class="menu-item"><a href="http://www.linkedin.com/in/nickdirienzo" target="_blank">LinkedIn</a></li>
                 <li class="menu-item"><a href="https://plus.google.com/113833436566676491098" target="_blank">Google+</a></li>
+                <li class="menu-item"><a href="mailto:nick@nickdirienzo.com">Email</a></li>
+                <li class="menu-item"><a href="http://www.linkedin.com/in/nickdirienzo" target="_blank">LinkedIn</a></li>
             </ul>
         </div>
         
