@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Blog Post{% endblock %}
+
+{% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/blog.css' />{% endblock %}
+
+{% block content %}            
+    {% if is_admin %}
+        <form id="new-post-form" action="/posts/edit/{{ post.slug }}" method="post">
+            <p><label for="pt">Post Title:</label>
+                <input type="text" id="pt" name="pt" size="50" value="{{ title }}"/></p>
+            <p><label for="c">Post Content:</label>
+                <textarea rows="10" cols="100" id="c" name="c">{{ markdown }}</textarea></p>
+            <p><input type="submit" name="submit" id="submit"></p>
+        </form>
+    {% else %}
+        <p>You do not have permission to view this page. Go back <a href="/">home</a>.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+.blog-post {
+    border-bottom: 1px solid #282828;
+}
+
+#post-title {
+    padding-top: 10px;
+    font-size: 1.5em;
+}
+
+#post-date, #post-tags {
+    font-size: 0.75em;
+}
+
+#blog-pages {
+    padding: 10px 0px;
+    text-align: right;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+/* COMMENTS */
+.comment-wrapper {
+    border: 1px solid #3366CC;
+    margin-bottom: 10px;
+    padding: 5px;
+}

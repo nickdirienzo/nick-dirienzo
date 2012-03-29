@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block css %}<link rel='stylesheet' type='text/css' href='/static/stylesheets/post.css' />{% endblock %}
+
+{% block content %}            
+    <div class="post" id="{{ post.slug }}">
+        <div id="post-title">
+            <a href="/posts/{{ post.slug }}">{{ post.title }}</a>
+        </div>
+        <div id="post-date">
+            {{ post.timestamp|date:"N d, Y " }}
+        </div>
+       {{ post.html }}
+    {% if is_admin %}
+    <p><a href="/posts/edit/{{ post.slug }}">Edit Post</a></p>
+    {% endif %}
+    </div>
+{% endblock %}
