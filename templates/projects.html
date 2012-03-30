@@ -3,8 +3,27 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-    <p>I actually code. My GitHub profile only explains so much. 
-        Unfortunately, I cannot have all of my projects listed there, 
-        but I will keep this page updated with a list of all the things 
-        I am doing.</p>
+    <p>I'll work on getting something a little more formal up, but here's a list of things I've worked on or currently working on with descriptions...</p>
+    <ul>
+        <li>This website!</li>
+        <ul>
+            <li>Began in July 2011, and I iterate over the design and architecture every so often.</li>
+            <li>Written in Python and built on top of App Engine.</li>
+            <li>Everything is written from scratch.</li>
+        </ul>
+        <li>Passive Image Taboo</li>
+        <ul>
+            <li>Developed in the Fall 2011 semester for the <a href="http://curca.buffalo.edu/students/research-opps.php?rid=253&title=Measuring+Semantic+Complexity+of+Images" target="_blank">Measuring Semantic Complexity of Images</a> proejct.</li>
+            <li>Written in Python, and utilized <a href="http://webpy.org/" target="_blank">web.py</a>.</li>
+            <li>Data stored in MySQL database.</li>
+            <li>Collected around 600 data entries through internal testing.</li>
+        </ul>
+        <li>Real-time Image Taboo</li>
+        <ul>
+            <li>Development began in Feb 2012 for the <a href="http://curca.buffalo.edu/students/research-opps.php?rid=253&title=Measuring+Semantic+Complexity+of+Images" target="_blank">Measuring Semantic Complexity of Images</a> project.</li>
+            <li>Written in Python, and utilized the <a href="http://www.tornadoweb.org/" target="_blank">Tornado</a> web server.</li>
+            <li>Data stored in MySQL database.</li>
+            <li>Used <a href="https://github.com/MrJoes/tornadio2" target="_blank">Tornadio2</a> to interface with <a href="http://socket.io/" target="_blank">socket.io</a>, which allowed us to have real-time communication between clients.</li>
+        </ul>
+    </ul>
 {% endblock %}
