@@ -15,10 +15,12 @@ from google.appengine.api import users
 from google.appengine.api import mail
 from google.appengine.ext import db
 
+PATH = os.path.dirname(__file__)
+
 class Page(webapp.RequestHandler):
     def render(self, page_name, slug="", template_vars={}):
         page_vars = {}
-        path = os.path.join(os.path.dirname(__file__), "templates", page_name + ".html")
+        path = os.path.join(PATH, "templates", page_name + ".html")
         if not slug:
             slug = page_name if page_name != "home" else ""
         user = users.get_current_user()
@@ -129,9 +131,19 @@ class PostEditorHandler(Page):
         else:
             self.redirect("/")
 
+class FreshmanSlidesHandler(webapp.RequestHandler):
+    def get(self, title):
+        if title:
+            if title == "freshman":
+                path = os.path.join(PATH, "templates", "slides", "freshman.html")
+            self.response.out.write(template.render(path, {}))
+        else:
+            self.redirect("/talks")
+
 def main():
     application = webapp.WSGIApplication(
-                                        [("/posts/delete/(.*)", PostDeleteHandler),
+                                        [("/slides/(.*)", SlidesHandler),
+                                        ("/posts/delete/(.*)", PostDeleteHandler),
                                         ("/posts/unpublish/(.*)", PostUnpublishHandler),
                                         ("/posts/publish/(.*)", PostPublishHandler),
                                         ("/posts/edit/(.*)", PostEditorHandler),

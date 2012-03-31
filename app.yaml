@@ -7,9 +7,6 @@ handlers:
 - url: /static/stylesheets
   static_dir: static/stylesheets
 
-- url: /static/projects
-  static_dir: static/projects
-  
 - url: /static/scripts
   static_dir: static/scripts
 
