@@ -131,7 +131,7 @@ class PostEditorHandler(Page):
         else:
             self.redirect("/")
 
-class FreshmanSlidesHandler(webapp.RequestHandler):
+class SlidesHandler(webapp.RequestHandler):
     def get(self, title):
         if title:
             if title == "freshman":
