@@ -131,18 +131,20 @@ class PostEditorHandler(Page):
         else:
             self.redirect("/")
 
-class SlidesHandler(webapp.RequestHandler):
+class TalksHandler(webapp.RequestHandler):
     def get(self, title):
         if title:
-            if title == "freshman":
-                path = os.path.join(PATH, "templates", "slides", "freshman.html")
-            self.response.out.write(template.render(path, {}))
+            path = os.path.join(PATH, "templates", "talks", "%s.html" % title)
+            if os.path.exists(path):
+                self.response.out.write(template.render(path, {}))
+            else:
+                self.redirect("/talks")
         else:
             self.redirect("/talks")
 
 def main():
     application = webapp.WSGIApplication(
-                                        [("/slides/(.*)", SlidesHandler),
+                                        [("/talks/(.*)", TalksHandler),
                                         ("/posts/delete/(.*)", PostDeleteHandler),
                                         ("/posts/unpublish/(.*)", PostUnpublishHandler),
                                         ("/posts/publish/(.*)", PostPublishHandler),

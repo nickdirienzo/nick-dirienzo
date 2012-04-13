@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A talk on being awesome or some shit</title>
+        <style>
+        body {
+            min-width: 740px;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .step {
+            width: 900px;
+            padding: 40px;
+            font-size: 48px;
+        }
+
+        .pop-in {
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+        }
+
+        .fade {
+            color: black;
+        }
+
+        .present .pop-in {
+            -webkit-transform: scale(1);
+            -webkit-transition: -webkit-transform 0.5s ease-in;
+            -moz-transform: scale(1);
+            -moz-transition: -moz-transform 0.5s ease-in;
+        }
+
+        .present .fade {
+            color: white;
+            -webkit-transition: color 1s ease-in;
+            -webkit-transition-delay: 1s;
+            -moz-transition: color 1s ease-in;
+            -moz-transition-delay: 1s;
+        }
+
+        .present a {
+            color: blue;
+            -webkit-transition: color 1s ease-in;
+            -webkit-transition-delay: 1s;
+            -moz-transition: color 1s ease-in;
+            -moz-transition-delay: 1s;
+        }
+
+        #street-cred.present #major {
+            -webkit-transition-delay: 1s;
+            -moz-transition-delay: 1s;
+        }
+
+        #street-cred.present #chair {
+            -webkit-transition-delay: 2s;
+            -moz-transition-delay: 2s;
+        }
+
+        #street-cred.present #intern {
+            -webkit-transition-delay: 3s;
+            -moz-transition-delay: 3s;
+        }
+
+        #street-cred.present #blue {
+            color: blue;
+            -webkit-transition: color 1s ease-in;
+            -webkit-transition-delay: 3.5s;
+            -moz-transition: color 1s ease-in;
+            -moz-transition-delay: 3.5s;
+        }
+
+        #street-cred.present #red {
+            color: red;
+            -webkit-transition: color 1s ease-in;
+            -webkit-transition-delay: 3.5s;
+            -moz-transition: color 1s ease-in;
+            -moz-transition-delay: 3.5s;
+        }
+
+        #street-cred.present #yellow {
+            color: yellow;
+            -webkit-transition: color 1s ease-in;
+            -webkit-transition-delay: 3.5s;
+            -moz-transition: color 1s ease-in;
+            -moz-transition-delay: 3.5s;
+        }
+
+        #street-cred.present #green {
+            color: green;
+            -webkit-transition: color 1s ease-in;
+            -webkit-transition-delay: 3.5s;
+            -moz-transition: color 1s ease-in;
+            -moz-transition-delay: 3.5s;
+        }
+
+        .tip .pop-in {
+            -webkit-transition-delay: 2s;
+            -moz-transition-delay: 2s;
+            tarnsition-delay: 2s;
+        }
+
+        @-webkit-keyframes wiggle {
+            0% {
+                -webkit-transform: rotate(10deg);
+            }
+            50% {
+                -webkit-transform: rotate(-10deg);
+            }
+            100% {
+                -webkit-transform: rotate(10deg);
+            }
+        }
+
+        #sidetip3.present .wiggle {
+            -webkit-animation: wiggle 0.5s infinite;
+            -webkit-animation-delay: 1.5s;
+        }
+
+        #sidetip4.present .wiggle {
+            -webkit-animation-name: wiggle;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-iteration-count: 3;
+            -webkit-animation-timing-function: ease-out;
+            -webkit-animation-delay: 4s;
+        }
+
+        #sidetip4.present #diy {
+            -webkit-transition-delay: 6s;
+        }
+
+        #sidetip5.present .big {
+            font-size: 115px;
+            -webkit-transition: font-size 0.5s ease-in;
+            -webkit-transition-delay: 0.5s;
+        }
+
+        #sidetip5.present #emph {
+            font-size: 24px;
+            -webkit-transition-delay: 2s;
+        }
+        </style>
+    </head>
+    <body class="impress-not-supported">
+        <div id="impress">
+
+            <div id="title" class="step" data-x="0" data-y="0">
+                <p>Being awesome.</p>
+            </div>
+
+            <div id="who" class="step" data-x="0" data-y="1000">
+                <p>Who's this guy?</p>
+            </div>
+
+            <div id="street-cred" class="step" data-x="1500" data-y="1000">
+                <p>I'm <a href="https://twitter.com/#!/nickdirienzo" target="_blank">@nickdirienzo</a>.</p>
+                <p id="major" class="pop-in">I study CS at UB.</p>
+                <p id="chair" class="pop-in">I organize UB Hacking.</p>
+                <p id="intern" class="pop-in">And this summer, I will be a Freshman Engineering Practicum Intern at <span id="blue">G</span><span id="red">o</span><span id="yellow">o</span><span id="blue">g</span><span id="green">l</span><span id="red">e</span>.</p>
+            </div> 
+
+            <div id="wannabe-awesome" class="step" data-x="3000" data-y="1000" data-rotate="90">
+                <p>So, you wanna be an awesome CS freshman?</p>
+            </div>
+
+            <div id="not-only-frosh" class="step" data-x="3000" data-y="2000" data-rotate="180">
+                <p>Okay, so this isn't only for freshman.</p>
+                <p class="pop-in">This goes for any student trying to be awesome, I guess.</p>
+            </div>
+
+            <div id="tip1" class="step tip" data-x="3000" data-y="3000">
+                <h1>Tip #1</h1>
+                <p class="fade">Join a club.</p>
+                <p class="pop-in">And be an awesome member!</p>
+            </div>
+            <div id="sidetip1" class="step tip" data-x="3000" data-y="3000" data-z="-5000" data-scale="0.01">
+                <p>ACM, IEEE, OpenCoffee Club, and so on...</p>
+            </div>
+
+            <div id="tip2" class="step tip" data-x="3000" data-y="4000">
+                <h1>Tip #2</h1>
+                <p class="fade">Talk to people.</p>
+                <p class="pop-in">It's called NETWORKING, and it's awesome!</p>
+            </div>    
+            <div id="sidetip2" class="step tip" data-x="3000" data-y="4000" data-z="-5000" data-scale="0.01">
+                <p>Faculty, academic advisors, engineers, and the like...</p>
+            </div>
+
+            <div id="tip3" class="step tip" data-x="3000" data-y="5000">
+                <h1>Tip #3</h1>
+                <p class="fade">Get into a research lab.</p>
+                <p class="pop-in">You learn a lot of awesome shit!</p>
+            </div>  
+            <div id="sidetip3" class="step tip" data-x="3000" data-y="5000" data-z="-5000" data-scale="0.01">
+                <p>Most universities have professors that do research, so find out who they are and do that thing called...</p>
+                <p class="pop-in wiggle">NETWORKING</p>
+            </div>  
+
+            <div id="tip4" class="step tip" data-x="3000" data-y="6000">
+                <h1>Tip #4</h1>
+                <p class="fade">Volunteer.</p>
+                <p class="pop-in">At awesome events.</p>
+            </div>
+            <div id="sidetip4" class="step tip" data-x="3000" data-y="6000" data-z="-5000" data-scale="0.01">
+                <p>Hackathons, Startup Weekends, BarCamps...</p>
+                <p class="pop-in wiggle">MOAR NETWORKING!</p>
+                <p id="diy" class="fade">Or have a go at organizing an awesome event.</p>
+            </div>
+
+            <div id="tip5" class="step tip" data-x="3000" data-y="7000">
+                <h1>Tip #5</h1>
+                <p class="fade">Code.</p>
+                <p class="pop-in">Outside of the classroom.</p>
+            </div>
+            <div id="sidetip5" class="step tip" data-x="3000" data-y="7000" data-z="-5000" data-scale="0.01">
+                <p class="big">You can only learn so much in a classroom. Learn on your own.</p>
+                <p id="emph" class="fade">I can't emphasize this enough. Really, I can't.</p>
+            </div>
+
+            <div id="tip6" class="step tip" data-x="3000" data-y="8000">
+                <h1>Tip #6</h1>
+                <p class="fade">Just do it.</p>
+                <p class="pop-in">Just fucking do it.</p>
+            </div>
+            <div id="sidetip6" class="step tip" data-x="3000" data-y="8000" data-z="-5000" data-scale="0.01">
+                <p>Good ideas only come every so often, so when you get one, run with it!</p>
+            </div>
+            <div id="network" class="step" data-x="0" data-y="8000" data-rotate="360">
+                <h1>OH AND NETWORKING!</h1>
+            </div>
+        </div>
+        <script src="/static/scripts/impress.js"></script>
+        <script>impress().init();</script>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+body {
+    min-height: 740px;
+    background-color: white;
+    color: black;
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+@keyframes pulse {
+    0% {
+        color: blue;
+    } 
+    50% {
+        color: black;
+    }
+    100% {
+        color: blue;
+    }
+}
+
+
+@-webkit-keyframes pulse {
+    0% {
+        color: blue;
+    } 
+    50% {
+        color: black;
+    }
+    100% {
+        color: blue;
+    }
+}
+
+@-moz-keyframes pulse {
+    0% {
+        color: blue;
+    } 
+    50% {
+        color: black;
+    }
+    100% {
+        color: blue;
+    }
+}
+
+
+a:hover {
+    -webkit-animation: pulse 2s infinite ease-in;
+    -moz-animation: pulse 2s infinite ease-in;
+    animation: pulse 2s infinite ease-in;
+}
+
+.impress-not-supported .step {
+    opacity: 1;
+}
+
+.step {
+    line-height: 1.5;
+    width: 950px;
+    font-size: 32px;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    transition: 1s;
+}
+
+.step:not(.active) {
+    opacity: 0;
+}
+
+.step h1, h2 {
+    text-align: center;
+}
+
+.step ul {
+    margin: 0;
+    padding: 0;
+}
+
+.present a {
+    color: blue;
+    -webkit-transition: color 3s;
+    -moz-transition: color 3s;
+    transition: color 3s;
+}
+
+.step#me p {
+    line-height: 1;
+}
+
+.step#before p {
+    text-align: center;
+    line-height: 0.5;
+}
+
+.step#thanks, .step#impact p {
+    text-align: center;
+}
+
+.step#ubhsponsors img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.step#ubhjudging p {
+    line-height: 0.5;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
