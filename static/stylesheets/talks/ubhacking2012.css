@@ -71,13 +71,8 @@ a:hover {
     opacity: 0;
 }
 
-.step h1, h2 {
+.step h1, h2, p {
     text-align: center;
-}
-
-.step ul {
-    margin: 0;
-    padding: 0;
 }
 
 .present a {
@@ -87,37 +82,8 @@ a:hover {
     transition: color 3s;
 }
 
-.step#me p {
-    line-height: 1;
-}
-
-.step#before p {
-    text-align: center;
-    line-height: 0.5;
-}
-
-.step#thanks, .ubh p {
-    text-align: center;
-}
-
 .step#ubhsponsors img {
     margin-left: auto;
     margin-right: auto;
     display: block;
-}
-
-.step#ubhjudging p {
-    line-height: 0.5;
-}
-
-.title {
-    font-size: 24px;
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
 }
